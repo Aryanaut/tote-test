@@ -50,9 +50,13 @@ void loop() {
             distance = duration*0.034/2;
             Serial.println(distance);
             if (distance > 10) {
-              walk();      
+              creep_dy = 3;
+              walk();
             }
-            //walk();
+            else {
+                creep_rotation = max(-PI/90, creep_rotation - PI/360);
+                walk();
+            }
             break;
         case 2: // Nothing
             delay(100);
